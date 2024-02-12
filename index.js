@@ -1,79 +1,70 @@
 const perguntas = [
   {
-    pergunta: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
-    resposta: [
-      "var",
-      "let",
-      "const"
+    pergunta: "Qual é a forma correta de declarar uma variável em JavaScript?",
+    respostas: [
+      "var x;",
+      "let x;",
+      "const x;"
     ],
     correta: 2
   },
   {
-    pergunta: "Qual desses é um tipo de dado primitivo em JavaScript?",
-    resposta: [
-      "Array",
-      "Object",
-      "Number"
+    pergunta: "Qual é a função que permite exibir uma mensagem em uma caixa de diálogo?",
+    respostas: [
+      "console.log()",
+      "alert()",
+      "prompt()"
     ],
-    correta: 2
-  },
-  {
-    pergunta: "Qual é a sintaxe correta para adicionar um comentário de linha única em JavaScript?",
-    resposta: [
-      "// Este é um comentário",
-      "<!-- Este é um comentário -->",
-      "/* Este é um comentário */"
-    ],
-    correta: 0
-  },
-  {
-    pergunta: "Qual método é usado para imprimir algo no console em JavaScript?",
-    resposta: [
-      "log()",
-      "print()",
-      "console.log()"
-    ],
-    correta: 2
-  },
-  {
-    pergunta: "O que o operador '===' faz em JavaScript?",
-    resposta: [
-      "Verifica se dois valores são iguais em valor, mas não em tipo",
-      "Verifica se dois valores são iguais em tipo, mas não em valor",
-      "Verifica se dois valores são iguais em valor e tipo"
-    ],
-    correta: 2
-  },
-  {
-    pergunta: "Qual função é usada para converter uma string em um número em JavaScript?",
-    resposta: [
-      "parseInt()",
-      "toString()",
-      "parseFloat()"
-    ],
-    correta: 0
+    correta: 1
   },
   {
     pergunta: "Qual é o operador usado para concatenar strings em JavaScript?",
-    resposta: [
+    respostas: [
       "+",
-      "&",
+      "-",
       "*"
     ],
     correta: 0
   },
   {
-    pergunta: "Qual desses não é um loop em JavaScript?",
-    resposta: [
-      "for",
-      "foreach",
-      "while"
+    pergunta: "Qual é o método que retorna o número de elementos em um array?",
+    respostas: [
+      "length()",
+      "count()",
+      "size()"
     ],
-    correta: 1
+    correta: 0
   },
   {
-    pergunta: "Qual método é usado para remover o último elemento de um array em JavaScript?",
-    resposta: [
+    pergunta: "Qual é a palavra-chave usada para iniciar um loop em JavaScript?",
+    respostas: [
+      "for",
+      "while",
+      "loop"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Qual é o tipo de dado que representa uma lista ordenada de elementos?",
+    respostas: [
+      "Array",
+      "Object",
+      "String"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Como se chama a estrutura de controle que permite executar um bloco de código se uma condição for verdadeira?",
+    respostas: [
+      "if",
+      "else",
+      "switch"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Qual é o método usado para remover o último elemento de um array?",
+    respostas: [
       "pop()",
       "shift()",
       "splice()"
@@ -81,31 +72,44 @@ const perguntas = [
     correta: 0
   },
   {
-    pergunta: "Qual é o valor de 'typeof null' em JavaScript?",
-    resposta: [
-      "'null'",
-      "'object'",
-      "'undefined'"
+    pergunta: "Como se declara uma função em JavaScript?",
+    respostas: [
+      "function myFunction()",
+      "myFunction = function()",
+      "const myFunction = () =>"
     ],
-    correta: 1
+    correta: 0
+  },
+  {
+    pergunta: "Qual é o operador de atribuição que adiciona o valor à variável e atribui o resultado?",
+    respostas: [
+      "+=",
+      "-=",
+      "*="
+    ],
+    correta: 0
   }
 ];
 
-const quiz = document.querySelector("#quiz")
+const quiz = document.querySelector("quiz")
 const template = document.querySelector("template")
 
 
-// loop ou laço de repetição
+
+//loop ou laço de repetição
 for(const item of perguntas) {
   const quizItem = template.content.cloneNode(true)
   quizItem.querySelector("h3").textContent = item.pergunta
 
-  for(let resposta of item.respostas){
-    const dt= quizItem.querySelector("dl dt").cloneNode(true)
-    dt.querySelector("span").textContent = resposta
-    quizItem.querySelector("dl").appendChild(dt)
   
-  }
+  for(let resposta of item.respostas){
+    const dt = quizItem.querySelector("dl dt").cloneNode(true)
+    dt.querySelector("span").textContent = resposta
 
+    quizItem.querySelector("dl").appendChild(dt)
+  }
+    quizItem.querySelector("dl dt").remove()
+
+  //coloca a pergunta na tela
   quiz.appendChild(quizItem)
 }
