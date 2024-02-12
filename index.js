@@ -107,7 +107,7 @@ for(const item of perguntas) {
 
     quizItem.querySelector('dl').appendChild(dt)
   }
-    quizItem.querySelector('dl').remove()
+    quizItem.querySelector('dl dt').remove()
 
   //coloca a pergunta na tela
   quiz.appendChild(quizItem)
