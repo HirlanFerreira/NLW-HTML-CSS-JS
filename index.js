@@ -95,7 +95,6 @@ const quiz = document.querySelector('#quiz')
 const template = document.querySelector('template')
 
 
-
 //loop ou laço de repetição
 for(const item of perguntas) {
   const quizItem = template.content.cloneNode(true)
